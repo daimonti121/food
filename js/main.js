@@ -448,15 +448,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Calc
 
     const result = document.querySelector('.calculating__result span');
-    let sex = 'female', 
-        height, weight, age, 
-        ratio = 1.375;
+    let sex = 'female',
+        height, weight, age,
+        ratio = 1.375;    
 
     function calcTotal() {
         if (!sex || !height || !weight || !age || !ratio) {
-            result.textContent = 'Error!';
+            result.textContent = 0;
             return;
-        }
+        };
 
         if (sex === 'female') {
             result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio);
@@ -471,19 +471,19 @@ document.addEventListener('DOMContentLoaded', () => {
         element.forEach(elem => {
             elem.addEventListener('click', (e) => {
                 if (e.target.getAttribute('data-ratio')) {
-                    ratio = +e.target.getAttribute('data-ratio');
+                    ratio = + e.target.getAttribute('data-ratio');
                 } else {
                     sex = e.target.getAttribute('id');
                 }
 
                 element.forEach(elem => {
                     elem.classList.remove(activeClass);
-                })
+                });
 
                 e.target.classList.add(activeClass);
 
                 calcTotal();
-            });
+            })
         })
     }
 
@@ -507,8 +507,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     age = +input.value;
                     break;
             }
+
             calcTotal();
-        });
+        })
     }
 
     getDunamicInformation('#height');
