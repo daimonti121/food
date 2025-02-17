@@ -111,4 +111,4 @@ function calc() {
     getDunamicInformation('#weight');
 }
 
-module.exports = calc;
+export default calc;
